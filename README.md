@@ -13,3 +13,6 @@ Later there will be a website or mobile app destined to the players and a server
 
 Was setup listening to this tutorial :
 https://www.youtube.com/watch?v=fP-371MN0Ck
+
+Follows recomended project structure pattern from this guide :
+https://nourkitab.com/blog/how-to-set-up-an-electron-project
