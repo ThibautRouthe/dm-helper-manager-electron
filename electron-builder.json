@@ -1,6 +1,7 @@
 {
     "appId": "com.r-thibaut.dm-helper-manager",
     "files": ["dist-electron","dist-react"],
+    "extraResources": ["dist-preload"],
     "icon": "./desktopIcon.png",
     "mac":{
         "target": "dmg"

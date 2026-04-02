@@ -1,5 +1,6 @@
 {
   "name": "gm-helper-manager-electron",
+  "author": "Thibaut Routhe",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,14 +8,16 @@
   "scripts": {
     "dev": "npm-run-all --parallel dev:react dev:electron",
     "dev:react": "vite",
-    "dev:electron": "npm run transpile:electron && cross-env NODE_ENV=devmode electron .",
+    "dev:electron": "npm run transpile:backend && cross-env NODE_ENV=devmode electron .",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "transpile:backend":"npm run transpile:electron && npm run transpile:preload",
     "transpile:electron": "tsc --project src/main/tsconfig.json",
-    "dist:mac": "npm run transpile:electron && npm run build && electron-builder --mac --arm64",
-    "dist:win": "npm run transpile:electron && npm run build && electron-builder --win --x64",
-    "dist:linux": "npm run transpile:electron && npm run build && electron-builder --linux --x64"
+    "transpile:preload": "tsc --project src/preload/tsconfig.json",
+    "dist:mac": "npm run transpile:backend && npm run build && electron-builder --mac --arm64",
+    "dist:win": "npm run transpile:backend && npm run build && electron-builder --win --x64",
+    "dist:linux": "npm run transpile:backend && npm run build && electron-builder --linux --x64"
   },
   "dependencies": {
     "react": "^19.2.4",
